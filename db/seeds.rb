@@ -74,3 +74,15 @@ end
   Comment.create(content:Faker::Lorem.sentence(word_count: 4),commentable:Comment.all[rand(0...Comment.all.size)],user:User.all[rand(0...User.all.size)])
    puts "Comment de comment #{index+1} créé"
 end
+
+#On créé 20 likes de gossips
+20.times do |index|
+  Like.create(likeable:Gossip.all[rand(0...Gossip.all.size)])
+   puts "Like de gossip #{index+1} créé"
+end
+
+#On créé 20 likes de commentaire
+20.times do |index|
+  Like.create(likeable:Comment.all[rand(0...Comment.all.size)])
+   puts "Like de comment #{index+1} créé"
+end

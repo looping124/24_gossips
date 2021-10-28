@@ -40,10 +40,11 @@ ActiveRecord::Schema.define(version: 2021_10_28_133852) do
   end
 
   create_table "likes", force: :cascade do |t|
-    t.integer "gossip_id"
+    t.string "likeable_type"
+    t.integer "likeable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["gossip_id"], name: "index_likes_on_gossip_id"
+    t.index ["likeable_type", "likeable_id"], name: "index_likes_on_likeable_type_and_likeable_id"
   end
 
   create_table "private_messages", force: :cascade do |t|
